@@ -1,0 +1,118 @@
+<section class="animate-fade-in mx-auto max-w-3xl">
+  <div class="mb-5">
+    <h1 class="text-2xl font-semibold text-slate-900">Add Employee</h1>
+    <p class="text-sm text-slate-500">All fields are required.</p>
+  </div>
+
+  <form class="card p-6 sm:p-8" [formGroup]="form" (ngSubmit)="save()">
+    <p-fluid class="grid gap-5 sm:grid-cols-2">
+      <div>
+        <label class="label" for="username">Username</label>
+        <input pInputText id="username" formControlName="username" [invalid]="isInvalid('username')" />
+        @if (isInvalid('username')) {
+          <p-message severity="error" variant="simple" size="small">
+            {{ form.controls.username.hasError('taken') ? 'Username is already taken.' : 'Username is required.' }}
+          </p-message>
+        }
+      </div>
+
+      <div>
+        <label class="label" for="email">Email</label>
+        <input pInputText id="email" type="email" formControlName="email" placeholder="name@company.com" [invalid]="isInvalid('email')" />
+        @if (isInvalid('email')) {
+          <p-message severity="error" variant="simple" size="small">
+            {{ form.controls.email.hasError('required') ? 'Email is required.' : 'Email format is invalid.' }}
+          </p-message>
+        }
+      </div>
+
+      <div>
+        <label class="label" for="firstName">First Name</label>
+        <input pInputText id="firstName" formControlName="firstName" [invalid]="isInvalid('firstName')" />
+        @if (isInvalid('firstName')) {
+          <p-message severity="error" variant="simple" size="small">First name is required.</p-message>
+        }
+      </div>
+
+      <div>
+        <label class="label" for="lastName">Last Name</label>
+        <input pInputText id="lastName" formControlName="lastName" [invalid]="isInvalid('lastName')" />
+        @if (isInvalid('lastName')) {
+          <p-message severity="error" variant="simple" size="small">Last name is required.</p-message>
+        }
+      </div>
+
+      <div>
+        <label class="label" for="birthDate">Birth Date</label>
+        <p-datepicker
+          inputId="birthDate"
+          formControlName="birthDate"
+          [maxDate]="today"
+          [showIcon]="true"
+          dateFormat="dd/mm/yy"
+          placeholder="dd/mm/yyyy"
+          [invalid]="isInvalid('birthDate')"
+        />
+        @if (isInvalid('birthDate')) {
+          <p-message severity="error" variant="simple" size="small">
+            {{ form.controls.birthDate.hasError('future') ? 'Birth date cannot be after today.' : 'Birth date is required.' }}
+          </p-message>
+        }
+      </div>
+
+      <div>
+        <label class="label" for="basicSalary">Basic Salary</label>
+        <p-inputnumber
+          inputId="basicSalary"
+          formControlName="basicSalary"
+          mode="currency"
+          currency="IDR"
+          locale="id-ID"
+          [min]="0"
+          placeholder="Rp 0,00"
+          [invalid]="isInvalid('basicSalary')"
+        />
+        @if (isInvalid('basicSalary')) {
+          <p-message severity="error" variant="simple" size="small">Basic salary is required.</p-message>
+        }
+      </div>
+
+      <div>
+        <label class="label" for="status">Status</label>
+        <p-select inputId="status" formControlName="status" [options]="statuses" placeholder="Select status" [invalid]="isInvalid('status')" />
+        @if (isInvalid('status')) {
+          <p-message severity="error" variant="simple" size="small">Status is required.</p-message>
+        }
+      </div>
+
+      <div>
+        <label class="label" for="group">Group</label>
+        <p-select
+          inputId="group"
+          formControlName="group"
+          [options]="groups"
+          [filter]="true"
+          filterPlaceholder="Search group…"
+          placeholder="Select group"
+          [invalid]="isInvalid('group')"
+        />
+        @if (isInvalid('group')) {
+          <p-message severity="error" variant="simple" size="small">Group is required.</p-message>
+        }
+      </div>
+
+      <div class="sm:col-span-2">
+        <label class="label" for="description">Description</label>
+        <textarea pTextarea id="description" rows="3" formControlName="description" [invalid]="isInvalid('description')"></textarea>
+        @if (isInvalid('description')) {
+          <p-message severity="error" variant="simple" size="small">Description is required.</p-message>
+        }
+      </div>
+    </p-fluid>
+
+    <div class="mt-8 flex justify-end gap-3 border-t border-slate-100 pt-5">
+      <p-button label="Cancel" severity="secondary" [outlined]="true" routerLink="/employees" />
+      <p-button type="submit" label="Save" icon="pi pi-check" />
+    </div>
+  </form>
+</section>
