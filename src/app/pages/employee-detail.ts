@@ -48,14 +48,14 @@ import { RupiahPipe } from '../core/rupiah.pipe';
           </dl>
 
           <div class="flex justify-end border-t border-slate-100 p-4">
-            <p-button label="OK" styleClass="px-8" routerLink="/employees" />
+            <a pButton class="px-8" routerLink="/employees">OK</a>
           </div>
         </div>
       } @else {
         <div class="card p-10 text-center">
           <i class="pi pi-user-minus mb-3 block text-3xl text-slate-300"></i>
           <p class="mb-5 text-slate-500">Employee "{{ username() }}" not found.</p>
-          <p-button label="OK" routerLink="/employees" />
+          <a pButton routerLink="/employees">OK</a>
         </div>
       }
     </section>

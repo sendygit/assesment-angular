@@ -5,12 +5,17 @@ import { ButtonModule } from 'primeng/button';
 import { FluidModule } from 'primeng/fluid';
 import { InputTextModule } from 'primeng/inputtext';
 import { MessageModule } from 'primeng/message';
-import { PasswordModule } from 'primeng/password';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
+import { InputPasswordModule } from 'primeng/inputpassword';
 import { AuthService } from '../core/auth';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule, ButtonModule, FluidModule, InputTextModule, MessageModule, PasswordModule],
+  imports: [
+    ReactiveFormsModule,
+    ButtonModule, FluidModule, IconFieldModule, InputIconModule, InputPasswordModule, InputTextModule, MessageModule,
+  ],
   template: `
     <div class="fixed inset-0 flex items-center justify-center overflow-y-auto bg-linear-to-br from-slate-900 via-slate-800 to-teal-700 p-4">
       <form class="card animate-fade-in w-full max-w-sm border-0 p-8 shadow-2xl" [formGroup]="form" (ngSubmit)="submit()">
@@ -33,7 +38,26 @@ import { AuthService } from '../core/auth';
 
           <div>
             <label class="label" for="password">Password</label>
-            <p-password inputId="password" formControlName="password" [feedback]="false" [toggleMask]="true" [invalid]="isInvalid('password')" />
+            <p-iconfield>
+              <input
+                pInputPassword
+                id="password"
+                formControlName="password"
+                autocomplete="current-password"
+                [(mask)]="masked"
+                [invalid]="isInvalid('password')"
+              />
+              <p-inputicon>
+                <button
+                  type="button"
+                  class="cursor-pointer"
+                  [attr.aria-label]="masked() ? 'Show password' : 'Hide password'"
+                  (click)="masked.set(!masked())"
+                >
+                  <i class="pi" [class]="masked() ? 'pi-eye' : 'pi-eye-slash'"></i>
+                </button>
+              </p-inputicon>
+            </p-iconfield>
             @if (isInvalid('password')) {
               <p-message severity="error" variant="simple" size="small">Password is required.</p-message>
             }
@@ -43,7 +67,7 @@ import { AuthService } from '../core/auth';
             <p-message severity="error" icon="pi pi-times-circle">{{ error() }}</p-message>
           }
 
-          <p-button type="submit" label="Login" icon="pi pi-sign-in" styleClass="mt-2" />
+          <button pButton type="submit" class="mt-2"><i class="pi pi-sign-in"></i> Login</button>
         </p-fluid>
 
         <p class="mt-5 text-center text-xs text-slate-400">Demo: admin / admin123</p>
@@ -56,6 +80,7 @@ export class Login {
   private readonly router = inject(Router);
 
   protected readonly error = signal('');
+  protected readonly masked = signal(true);
   protected readonly form = inject(NonNullableFormBuilder).group({
     username: ['', Validators.required],
     password: ['', Validators.required],

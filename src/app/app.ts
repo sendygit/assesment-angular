@@ -17,8 +17,11 @@ import { AuthService } from './core/auth';
             </span>
             <span class="hidden sm:inline">Employee Management</span>
           </a>
-          <p-button label="Logout" icon="pi pi-sign-out" severity="secondary" [text]="true" styleClass="text-slate-300! hover:bg-white/10! hover:text-white!" (onClick)="logout()" />
+          <button pButton type="button" severity="secondary" [text]="true" class="text-slate-300! hover:bg-white/10! hover:text-white!" (click)="logout()">
+            <i class="pi pi-sign-out"></i> Logout
+          </button>
         </div>
+        <div class="h-0.5 bg-linear-to-r from-amber-400 via-teal-500 to-transparent"></div>
       </header>
     }
     <main class="mx-auto max-w-6xl px-4 py-6 sm:py-8">

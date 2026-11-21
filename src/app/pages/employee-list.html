@@ -1,10 +1,15 @@
 <section class="animate-fade-in space-y-5">
   <div class="flex flex-wrap items-end justify-between gap-3">
     <div>
-      <h1 class="text-2xl font-semibold text-slate-900">Employees</h1>
-      <p class="text-sm text-slate-500">{{ filtered().length }} team members found</p>
+      <h1 class="flex items-center gap-2.5 text-2xl font-semibold text-slate-900">
+        Employees
+        <span class="rounded-full bg-amber-100 px-2.5 py-0.5 text-sm font-semibold text-amber-700 ring-1 ring-amber-200">
+          {{ filtered().length }}
+        </span>
+      </h1>
+      <p class="text-sm text-slate-500">Manage your team members.</p>
     </div>
-    <p-button label="Add Employee" icon="pi pi-plus" routerLink="new" />
+    <a pButton routerLink="new"><i class="pi pi-plus"></i> Add Employee</a>
   </div>
 
   <!-- Search (AND) -->
@@ -79,16 +84,24 @@
           <td><p-tag [value]="employee.status" [severity]="statusSeverity[employee.status]" [rounded]="true" /></td>
           <td>
             <div class="flex justify-end gap-1">
-              <p-button icon="pi pi-eye" [rounded]="true" size="small" ariaLabel="View detail" [routerLink]="employee.username" />
-              <p-button
-                icon="pi pi-pencil"
+              <a pButton [rounded]="true" [iconOnly]="true" size="small" aria-label="View detail" [routerLink]="employee.username">
+                <i class="pi pi-eye"></i>
+              </a>
+              <button
+                pButton
+                type="button"
                 [rounded]="true"
+                [iconOnly]="true"
                 size="small"
-                styleClass="border-yellow-400! bg-yellow-400! text-yellow-950! hover:bg-yellow-500!"
-                ariaLabel="Edit"
-                (onClick)="edit(employee)"
-              />
-              <p-button icon="pi pi-trash" severity="danger" [rounded]="true" size="small" ariaLabel="Delete" (onClick)="remove(employee)" />
+                class="border-yellow-400! bg-yellow-400! text-yellow-950! hover:bg-yellow-500!"
+                aria-label="Edit"
+                (click)="edit(employee)"
+              >
+                <i class="pi pi-pencil"></i>
+              </button>
+              <button pButton type="button" severity="danger" [rounded]="true" [iconOnly]="true" size="small" aria-label="Delete" (click)="remove(employee)">
+                <i class="pi pi-trash"></i>
+              </button>
             </div>
           </td>
         </tr>
