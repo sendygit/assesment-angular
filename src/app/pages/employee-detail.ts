@@ -20,7 +20,7 @@ import { RupiahPipe } from '../core/rupiah.pipe';
               <h1 class="truncate text-xl font-semibold text-slate-900">{{ e.firstName }} {{ e.lastName }}</h1>
               <p class="truncate text-sm text-slate-500">&#64;{{ e.username }}</p>
             </div>
-            <p-tag class="ml-auto" [value]="e.status" [severity]="statusSeverity[e.status]" [rounded]="true" />
+            <p-tag class="ml-auto" [value]="e.status" [severity]="statusSeverity[e.status]" />
           </div>
 
           <dl class="grid gap-x-6 gap-y-5 p-6 sm:grid-cols-2">

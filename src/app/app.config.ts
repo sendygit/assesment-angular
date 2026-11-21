@@ -26,6 +26,24 @@ const AppTheme = definePreset(Aura, {
       light: { primary: { color: '{primary.600}', hoverColor: '{primary.700}', activeColor: '{primary.800}' } },
     },
   },
+  components: {
+    datatable: {
+      headerCell: { padding: '0.875rem' },
+      bodyCell: { padding: '0.875rem' },
+    },
+    // Solid status tags with white text.
+    tag: {
+      root: { padding: '0.25rem 0.625rem', borderRadius: '0.375rem', fontWeight: '600' },
+      success: { background: '{emerald.600}', color: '#ffffff' },
+      info: { background: '{sky.600}', color: '#ffffff' },
+      secondary: { background: '{slate.500}', color: '#ffffff' },
+    },
+    paginator: {
+      root: { padding: '0.875rem 1.25rem' },
+      // Selected page uses the solid primary colour, like the main buttons.
+      navButton: { selectedBackground: '{primary.color}', selectedColor: '{primary.contrast.color}' },
+    },
+  },
 });
 
 export const appConfig: ApplicationConfig = {
