@@ -10,7 +10,7 @@ import { AuthService } from './core/auth';
   template: `
     @if (auth.loggedIn()) {
       <header class="sticky top-0 z-40 bg-slate-900 shadow-md">
-        <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
+        <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
           <a routerLink="/employees" class="flex items-center gap-2.5 font-semibold text-white">
             <span class="grid size-9 place-items-center rounded-xl bg-primary text-primary-contrast shadow-sm">
               <i class="pi pi-users"></i>
@@ -21,10 +21,9 @@ import { AuthService } from './core/auth';
             <i class="pi pi-sign-out"></i> Logout
           </button>
         </div>
-        <div class="h-0.5 bg-linear-to-r from-amber-400 via-teal-500 to-transparent"></div>
       </header>
     }
-    <main class="mx-auto max-w-6xl px-4 py-6 sm:py-8">
+    <main class="mx-auto max-w-7xl px-4 py-6 sm:py-8">
       <router-outlet />
     </main>
     <p-toast position="top-right" />

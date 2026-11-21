@@ -16,8 +16,6 @@ import { RupiahPipe } from '../core/rupiah.pipe';
 interface Column {
   key: keyof Employee;
   label: string;
-  /** Extra classes, e.g. to hide less important columns on small screens. */
-  class?: string;
 }
 
 @Component({
@@ -38,10 +36,10 @@ export class EmployeeList {
   protected readonly columns: Column[] = [
     { key: 'username', label: 'Username' },
     { key: 'firstName', label: 'Name' },
-    { key: 'email', label: 'Email', class: 'hidden lg:table-cell' },
-    { key: 'birthDate', label: 'Birth Date', class: 'hidden xl:table-cell' },
-    { key: 'basicSalary', label: 'Salary', class: 'hidden md:table-cell' },
-    { key: 'group', label: 'Group', class: 'hidden sm:table-cell' },
+    { key: 'email', label: 'Email' },
+    { key: 'birthDate', label: 'Birth Date' },
+    { key: 'basicSalary', label: 'Salary' },
+    { key: 'group', label: 'Group' },
     { key: 'status', label: 'Status' },
   ];
 

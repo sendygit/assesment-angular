@@ -17,4 +17,6 @@
 @layer components {
   .card { @apply rounded-2xl border border-slate-200 bg-white shadow-sm; }
   .label { @apply mb-1.5 block text-sm font-medium text-slate-700; }
+  /* Soft shadow on the left of a right-frozen table column, so overlapped cells read as "under" it. */
+  .frozen-edge { box-shadow: -8px 0 8px -8px rgb(15 23 42 / 0.18); }
 }
