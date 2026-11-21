@@ -1,7 +1,7 @@
 <section class="animate-fade-in mx-auto max-w-3xl">
   <div class="mb-5">
-    <h1 class="text-2xl font-semibold text-slate-900">Add Employee</h1>
-    <p class="text-sm text-slate-500">All fields are required.</p>
+    <h1 class="text-2xl font-semibold text-slate-900 dark:text-white">Add Employee</h1>
+    <p class="text-sm text-slate-500 dark:text-slate-400">All fields are required.</p>
   </div>
 
   <form class="card p-6 sm:p-8" [formGroup]="form" (ngSubmit)="save()">
@@ -110,8 +110,8 @@
       </div>
     </p-fluid>
 
-    <div class="mt-8 flex justify-end gap-3 border-t border-slate-100 pt-5">
-      <a pButton severity="secondary" class="border-slate-300! bg-slate-300! text-slate-800! hover:bg-slate-400!" routerLink="/employees">
+    <div class="mt-8 flex justify-end gap-3 border-t border-slate-100 dark:border-slate-800 pt-5">
+      <a pButton severity="secondary" class="border-slate-300! bg-slate-300! text-slate-800! hover:bg-slate-400! dark:border-slate-600! dark:bg-slate-600! dark:text-slate-100! dark:hover:bg-slate-500!" routerLink="/employees">
         Cancel
       </a>
       <button pButton type="submit">Save</button>

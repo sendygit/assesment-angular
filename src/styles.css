@@ -5,6 +5,8 @@
 @import "tailwindcss-primeui";
 @import "primeicons/primeicons.css";
 
+@custom-variant dark (&:where(.app-dark, .app-dark *));
+
 @theme {
   --animate-fade-in: fade-in 0.35s ease-out both;
 }
@@ -15,7 +17,7 @@
 }
 
 @layer components {
-  .card { @apply rounded-2xl border border-slate-200 bg-white shadow-sm; }
-  .label { @apply mb-1.5 block text-sm font-medium text-slate-700; }
+  .card { @apply rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900; }
+  .label { @apply mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300; }
   .frozen-edge { box-shadow: -8px 0 8px -8px rgb(15 23 42 / 0.18); }
 }

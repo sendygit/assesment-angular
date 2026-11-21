@@ -9,22 +9,24 @@ import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { InputPasswordModule } from 'primeng/inputpassword';
 import { AuthService } from '../core/auth';
+import { ThemeToggle } from '../core/theme';
 
 @Component({
   selector: 'app-login',
   imports: [
     ReactiveFormsModule,
-    ButtonModule, FluidModule, IconFieldModule, InputIconModule, InputPasswordModule, InputTextModule, MessageModule,
+    ButtonModule, FluidModule, IconFieldModule, InputIconModule, InputPasswordModule, InputTextModule, MessageModule, ThemeToggle,
   ],
   template: `
     <div class="fixed inset-0 flex items-center justify-center overflow-y-auto bg-linear-to-br from-slate-900 via-slate-800 to-teal-700 p-4">
+      <app-theme-toggle class="absolute top-4 right-4" />
       <form class="card animate-fade-in w-full max-w-sm border-0 p-8 shadow-2xl" [formGroup]="form" (ngSubmit)="submit()">
         <div class="mb-7 text-center">
           <span class="mx-auto mb-4 grid size-12 place-items-center rounded-2xl bg-primary text-xl text-primary-contrast shadow-md">
             <i class="pi pi-users"></i>
           </span>
-          <h1 class="text-xl font-semibold text-slate-900">Welcome back</h1>
-          <p class="text-sm text-slate-500">Sign in to manage employees</p>
+          <h1 class="text-xl font-semibold text-slate-900 dark:text-white">Welcome back</h1>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Sign in to manage employees</p>
         </div>
 
         <p-fluid class="flex flex-col gap-4">

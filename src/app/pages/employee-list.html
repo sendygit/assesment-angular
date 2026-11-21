@@ -1,11 +1,11 @@
 <section class="animate-fade-in space-y-5">
   <div class="flex flex-wrap items-end justify-between gap-3">
     <div>
-      <h1 class="flex items-center gap-2.5 text-2xl font-semibold text-slate-900">
+      <h1 class="flex items-center gap-2.5 text-2xl font-semibold text-slate-900 dark:text-white">
         Employees
-        <span class="font-bold text-slate-900">{{ filtered().length }}</span>
+        <span class="font-bold text-slate-900 dark:text-white">{{ filtered().length }}</span>
       </h1>
-      <p class="text-sm text-slate-500">Manage your team members.</p>
+      <p class="text-sm text-slate-500 dark:text-slate-400">Manage your team members.</p>
     </div>
     <a pButton routerLink="new"><i class="pi pi-plus"></i> Add Employee</a>
   </div>
@@ -72,9 +72,9 @@
 
       <ng-template #body let-employee>
         <tr class="whitespace-nowrap">
-          <td class="font-medium text-slate-900">{{ employee.username }}</td>
+          <td class="font-medium text-slate-900 dark:text-white">{{ employee.username }}</td>
           <td>{{ employee.firstName }} {{ employee.lastName }}</td>
-          <td class="text-slate-500">{{ employee.email }}</td>
+          <td class="text-slate-500 dark:text-slate-400">{{ employee.email }}</td>
           <td>{{ employee.birthDate | date: 'd MMM yyyy' }}</td>
           <td>{{ employee.basicSalary | rupiah }}</td>
           <td>{{ employee.group }}</td>
@@ -106,8 +106,8 @@
 
       <ng-template #emptymessage>
         <tr>
-          <td class="py-12 text-center text-slate-500" [attr.colspan]="columns.length + 1">
-            <i class="pi pi-search mb-2 block text-2xl text-slate-300"></i>
+          <td class="py-12 text-center text-slate-500 dark:text-slate-400" [attr.colspan]="columns.length + 1">
+            <i class="pi pi-search mb-2 block text-2xl text-slate-300 dark:text-slate-600"></i>
             No employees match your search.
           </td>
         </tr>
