@@ -10,7 +10,6 @@
     <a pButton routerLink="new"><i class="pi pi-plus"></i> Add Employee</a>
   </div>
 
-  <!-- Search (AND) -->
   <div class="card mb-3 grid gap-3 p-4 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr]">
     <p-iconfield class="sm:col-span-2 lg:col-span-1">
       <p-inputicon class="pi pi-search" />
@@ -41,7 +40,6 @@
     />
   </div>
 
-  <!-- The table fills the rest of the screen (min 20rem); extra rows scroll inside it. -->
   <div class="card overflow-hidden">
     <p-table
       [value]="filtered()"

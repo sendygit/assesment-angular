@@ -1,7 +1,6 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 
-// Hardcoded on purpose: the assessment has no backend.
 const CREDENTIALS = { username: 'admin', password: 'admin123' };
 const SESSION_KEY = 'logged-in';
 
@@ -22,6 +21,5 @@ export class AuthService {
   }
 }
 
-/** Only logged-in users may enter; others go to /login. */
 export const authGuard: CanActivateFn = () =>
   inject(AuthService).loggedIn() || inject(Router).createUrlTree(['/login']);

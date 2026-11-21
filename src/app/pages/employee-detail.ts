@@ -64,7 +64,6 @@ import { RupiahPipe } from '../core/rupiah.pipe';
 export class EmployeeDetail {
   private readonly service = inject(EmployeeService);
 
-  /** Bound from the :username route param. */
   readonly username = input.required<string>();
 
   protected readonly employee = computed(() => this.service.find(this.username()));

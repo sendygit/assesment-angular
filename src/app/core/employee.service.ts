@@ -19,7 +19,6 @@ export const GROUPS = [
 
 export const STATUSES = ['Active', 'Probation', 'Inactive'];
 
-/** PrimeNG tag colour per status. */
 export const STATUS_SEVERITY: Record<string, 'success' | 'info' | 'secondary'> = {
   Active: 'success',
   Probation: 'info',

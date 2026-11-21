@@ -21,9 +21,14 @@ const AppTheme = definePreset(Aura, {
       900: '{teal.900}',
       950: '{teal.950}',
     },
-    // Use teal-600 (#0D9488) as the main colour instead of Aura's default 500.
     colorScheme: {
-      light: { primary: { color: '{primary.600}', hoverColor: '{primary.700}', activeColor: '{primary.800}' } },
+      light: {
+        primary: {
+          color: '{primary.600}',
+          hoverColor: '{primary.700}',
+          activeColor: '{primary.800}',
+        },
+      },
     },
   },
   components: {
@@ -31,7 +36,6 @@ const AppTheme = definePreset(Aura, {
       headerCell: { padding: '0.875rem' },
       bodyCell: { padding: '0.875rem' },
     },
-    // Solid status tags with white text.
     tag: {
       root: { padding: '0.25rem 0.625rem', borderRadius: '0.375rem', fontWeight: '600' },
       success: { background: '{emerald.600}', color: '#ffffff' },
@@ -40,8 +44,10 @@ const AppTheme = definePreset(Aura, {
     },
     paginator: {
       root: { padding: '0.875rem 1.25rem' },
-      // Selected page uses the solid primary colour, like the main buttons.
-      navButton: { selectedBackground: '{primary.color}', selectedColor: '{primary.contrast.color}' },
+      navButton: {
+        selectedBackground: '{primary.color}',
+        selectedColor: '{primary.contrast.color}',
+      },
     },
   },
 });
@@ -51,12 +57,10 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes, withComponentInputBinding()),
     providePrimeNG({
-      // Free PrimeUI Community License key (https://primeui.dev/licenses/community).
       license:
         'eyJpZCI6Ijg3YmRiNWYzLWIyZmYtNDUzNS04MzZkLTczZWJkNWEyOTVjOCIsInByb2R1Y3QiOiJwcmltZXVpIiwidGllciI6ImNvbW11bml0eSIsInR5cGUiOiJkZXYiLCJpYXQiOjE3OTUyMzYxNTksImV4cCI6MTgyNjc3MjE1OX0.7Ed7ApCaCs9QEp9DoEG8SScOJ1ATxrRFD-jhi1x-ZGnvfl8ko6YxJGmHrCfRDgbc-vqyAXjlHIDKenZPTKdZCg',
       theme: {
         preset: AppTheme,
-        // Light theme only: '.app-dark' is never applied.
         options: {
           darkModeSelector: '.app-dark',
           cssLayer: { name: 'primeng', order: 'theme, base, primeng' },

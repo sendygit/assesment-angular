@@ -59,7 +59,6 @@ export class EmployeeList {
     );
   });
 
-  /** A new search starts from the first page. */
   backToFirstPage(): void {
     this.state.first.set(0);
   }
