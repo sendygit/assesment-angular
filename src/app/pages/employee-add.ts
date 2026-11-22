@@ -10,7 +10,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { MessageModule } from 'primeng/message';
 import { SelectModule } from 'primeng/select';
 import { TextareaModule } from 'primeng/textarea';
-import { EmployeeService, GROUPS, STATUSES } from '../core/employee.service';
+import { EmployeeService, GROUPS, STATUSES } from '../core/employee';
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 

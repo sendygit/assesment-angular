@@ -10,8 +10,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { SelectModule } from 'primeng/select';
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
-import { Employee, EmployeeService, GROUPS, STATUS_SEVERITY, STATUSES } from '../core/employee.service';
-import { RupiahPipe } from '../core/rupiah.pipe';
+import { Employee, EmployeeService, GROUPS, STATUS_SEVERITY, STATUSES } from '../core/employee';
+import { RupiahPipe } from '../core/rupiah-pipe';
 
 interface Column {
   key: keyof Employee;

@@ -4,8 +4,8 @@ import { RouterLink } from '@angular/router';
 import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
-import { EmployeeService, STATUS_SEVERITY } from '../core/employee.service';
-import { RupiahPipe } from '../core/rupiah.pipe';
+import { EmployeeService, STATUS_SEVERITY } from '../core/employee';
+import { RupiahPipe } from '../core/rupiah-pipe';
 
 @Component({
   selector: 'app-employee-detail',
